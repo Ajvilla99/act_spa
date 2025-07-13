@@ -2,11 +2,163 @@
   "users": [
     {
       "id": 1,
-      "email": "admin@eventos.com",
+      "name": "administrator",
+      "email": "admin@admin.com",
       "password": "admin123",
       "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Estudiante #1",
+      "email": "std@std.com",
+      "password": "std123",
+      "role": "student"
     }
   ],
   "events": [],
-  "registrations": []
+  "registrations": [],
+  "courses": [
+    {
+      "id": 1,
+      "title": "Introduction to Programming",
+      "language": "JavaScript",
+      "level": "Beginner",
+      "durationHours": 20
+    },
+    {
+      "id": 2,
+      "title": "Web Development with HTML & CSS",
+      "language": "HTML/CSS",
+      "level": "Beginner",
+      "durationHours": 15
+    },
+    {
+      "id": 3,
+      "title": "Advanced JavaScript",
+      "language": "JavaScript",
+      "level": "Intermediate",
+      "durationHours": 25
+    },
+    {
+      "id": 4,
+      "title": "Python Fundamentals",
+      "language": "Python",
+      "level": "Beginner",
+      "durationHours": 18
+    },
+    {
+      "id": 5,
+      "title": "API Development with Node.js",
+      "language": "Node.js",
+      "level": "Intermediate",
+      "durationHours": 30
+    },
+    {
+      "id": 6,
+      "title": "React: From Zero to Expert",
+      "language": "JavaScript/React",
+      "level": "Intermediate",
+      "durationHours": 40
+    },
+    {
+      "id": 7,
+      "title": "TypeScript Course",
+      "language": "TypeScript",
+      "level": "Intermediate",
+      "durationHours": 20
+    },
+    {
+      "id": 8,
+      "title": "Game Development with Unity",
+      "language": "C#",
+      "level": "Intermediate",
+      "durationHours": 50
+    },
+    {
+      "id": 9,
+      "title": "Databases with SQL",
+      "language": "SQL",
+      "level": "Beginner",
+      "durationHours": 12
+    },
+    {
+      "id": 10,
+      "title": "Full Stack Web Developer",
+      "language": "JavaScript (MERN Stack)",
+      "level": "Advanced",
+      "durationHours": 60
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Wireless Mouse",
+      "category": "Electronics",
+      "price": 19.99,
+      "stock": 120
+    },
+    {
+      "id": 2,
+      "name": "Bluetooth Headphones",
+      "category": "Electronics",
+      "price": 49.99,
+      "stock": 75
+    },
+    {
+      "id": 3,
+      "name": "Mechanical Keyboard",
+      "category": "Electronics",
+      "price": 89.99,
+      "stock": 40
+    },
+    {
+      "id": 4,
+      "name": "Laptop Stand",
+      "category": "Accessories",
+      "price": 29.99,
+      "stock": 60
+    },
+    {
+      "id": 5,
+      "name": "Smartwatch",
+      "category": "Wearables",
+      "price": 99.99,
+      "stock": 30
+    },
+    {
+      "id": 6,
+      "name": "USB-C Hub",
+      "category": "Accessories",
+      "price": 24.99,
+      "stock": 90
+    },
+    {
+      "id": 7,
+      "name": "Gaming Monitor 27\"",
+      "category": "Electronics",
+      "price": 199.99,
+      "stock": 20
+    },
+    {
+      "id": 8,
+      "name": "External Hard Drive 1TB",
+      "category": "Storage",
+      "price": 59.99,
+      "stock": 50
+    },
+    {
+      "id": 9,
+      "name": "Portable Speaker",
+      "category": "Audio",
+      "price": 39.99,
+      "stock": 100
+    },
+    {
+      "id": 10,
+      "name": "Webcam Full HD",
+      "category": "Electronics",
+      "price": 34.99,
+      "stock": 65
+    }
+  ]
 }

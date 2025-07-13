@@ -26,6 +26,7 @@ export const auth = {
     const existingUser = await api.get(`/users?email=${email}`);
     if (existingUser.length > 0) {
       throw new Error('El email ya está registrado');
+      // Mostramos error en pantalla [HACER DISEÑO]
     }
     const newUser = { name, email, password: pass };
     await api.post('/users', newUser); // Registra el nuevo usuario
@@ -34,6 +35,7 @@ export const auth = {
   logout: () => {
     // TODO: Elimina el usuario de localStorage y redirige a login
     localStorage.removeItem('user'); // Elimina el usuario guardado
+    location.hash = '#/login'; // Redirige a la página de login
   },
   // Devuelve true si hay usuario autenticado
   isAuthenticated: () => {
@@ -45,6 +47,5 @@ export const auth = {
     // TODO: Devuelve el usuario guardado en localStorage (o null)
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null; // Devuelve el usuario parseado o null si no existe
-
   }
 };

@@ -1,0 +1,21 @@
+.btn_primary {
+  background-color: var(--primary-100);
+  color: var(--text-300);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn_primary:hover {
+  background-color: var(--primary-200);
+}
+
+.btn_action {
+  background: var(--c-riwi);
+  color: var(--text-300);
+  padding: 10px;
+}
+.btn_action:hover {
+  background-color: var(--c-riwi-hover);
+}

@@ -1,133 +1,79 @@
-body { font-family: sans-serif; margin: 2em; } button { margin-left: 0.5em; }
+ @import url('./ui/buttonStyles.css');
+ @import url('./ui/formLogin.css');
+ @import url('./ui/navbar.css');
+ @import url('./ui/dashboard.css');
 
-/* Estilos generales */
-h1, h2, h3 {
-  color: #2c3e50;
-  margin-bottom: 0.5em;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  background: #fff;
-  padding: 2em;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.card {
-  background: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  padding: 1.5em;
-  margin-bottom: 1.5em;
-  transition: box-shadow 0.2s;
-}
-.card:hover {
-  box-shadow: 0 4px 16px rgba(44,62,80,0.10);
+:root {
+  --primary-100: #1e2022;
+  --primary-200: #34373b;
+  --primary-300: #f0f5f9;
+  --accent-100: #788189;
+  --accent-200: #e1e4e6;
+  --text-100: #1e2022;
+  --text-200: #52616b;
+  --text-300: #e1e4e6;
+  --bg-100: #f0f5f9;
+  --bg-200: #c9d6df;
+  --bg-300: #bfc7d1;
+  --c-riwi: #6b5cff;
+  --c-riwi-hover: #5e4cfc;
 }
 
-button, input[type="submit"] {
-  background: #3498db;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 0.5em 1.2em;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-button:hover, input[type="submit"]:hover {
-  background: #217dbb;
-}
-
-input, select, textarea {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 0.5em;
-  font-size: 1em;
-  margin-bottom: 1em;
-  width: 100%;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
-form {
-  margin-bottom: 2em;
-}
-
-label {
-  font-weight: bold;
-  margin-bottom: 0.3em;
-  display: block;
-}
-
-nav {
-  background: #3498db;
-  padding: 1em;
-  border-radius: 8px;
-  margin-bottom: 2em;
-}
-nav a {
-  color: #fff;
-  text-decoration: none;
-  margin-right: 1.5em;
-  font-weight: 500;
-  transition: text-decoration 0.2s;
-}
-nav a:hover {
-  text-decoration: underline;
-}
-
-.alert {
-  background: #ffe0e0;
-  color: #c0392b;
-  border: 1px solid #e74c3c;
-  padding: 1em;
-  border-radius: 4px;
-  margin-bottom: 1em;
-}
-
-.success {
-  background: #e0ffe0;
-  color: #27ae60;
-  border: 1px solid #2ecc71;
-  padding: 1em;
-  border-radius: 4px;
-  margin-bottom: 1em;
-}
-
-/* Estilos para el login */
-.login-container {
+body {
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+input {
+  outline: none;
+  border: none;
+  padding: 10px;
+}
+
+button {
+  border: none;
+  background-color: var(--accent-100);
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-100);
+  cursor: pointer;
+}
+
+section {
+  min-height: 100vh;
+}
+
+#app {
+  flex: 1 0 auto;
+  display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
+  width: 100%;
 }
 
-.login-form {
-  background: #fff;
-  padding: 2em 2.5em;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-  width: 100%;
-  max-width: 340px;
+.body_login {
   display: flex;
-  flex-direction: column;
-  gap: 1em;
+  
 }
 
-.login-form input[type="text"],
-.login-form input[type="password"] {
-  width: 100%;
-  padding: 0.4em 0.7em;
-  font-size: 0.95em;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  margin-bottom: 0.7em;
+.bg_lg_desk {
+  width: calc(100% - 400px);
+  background: var(--accent-100);
 }
 
-.login-form button {
-  width: 100%;
-  margin-left: 0;
+.header {
+  display: none;
 }
+

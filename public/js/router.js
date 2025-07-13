@@ -3,7 +3,7 @@
 // Puedes agregar, modificar o eliminar rutas según lo requiera tu aplicación.
 
 // Importa los módulos necesarios
-import { auth } from './auth.js';
+import { auth } from "./auth.js";
 import {
   showLogin, // Implementa en views.js
   showRegister, // Implementa en views.js
@@ -11,40 +11,58 @@ import {
   showCourses, // Implementa en views.js
   showCreateCourse, // Implementa en views.js
   showEditCourse, // Implementa en views.js
-  renderNotFound // Implementa en views.js
-} from './views.js';
+  renderNotFound, // Implementa en views.js
+} from "./views.js";
 
 // Define aquí las rutas de tu SPA
 const routes = {
-  '#/login': showLogin, // Vista de login
-  '#/register': showRegister, // Vista de registro
-  '#/dashboard': showDashboard, // Vista principal tras login
-  '#/dashboard/courses': showCourses, // Listado de cursos
-  '#/dashboard/courses/create': showCreateCourse, // Formulario para crear curso
+  "#/login": showLogin, // Vista de login
+  "#/register": showRegister, // Vista de registro
+  "#/dashboard": showDashboard, // Vista principal tras login
+  "#/dashboard/courses": showCourses, // Listado de cursos
+  "#/dashboard/courses/create": showCreateCourse, // Formulario para crear curso
+  // '#/dashboard/courses': showCourses, // Listado de cursos
+  // '#/dashboard/courses/create': showCreateCourse, // Formulario para crear curso
   // Puedes agregar más rutas según lo necesites
 };
 
+const menu = document.querySelector("#menu");
+
 // Función principal de enrutamiento
 export function router() {
-  const path = location.hash || '#/login';
+  const path = location.hash || "#/login";
   const user = auth.getUser();
 
+  console.log(path.startsWith());
+
   // Ejemplo: proteger rutas de dashboard
-  if (path.startsWith('#/dashboard') && !auth.isAuthenticated()) {
-    location.hash = '#/login';
+  if (path.startsWith("#/dashboard") && !auth.isAuthenticated()) {
+    location.hash = "#/login";
     return;
   }
 
   // Ejemplo: evitar que usuarios logueados accedan a login/register
-  if ((path === '#/login' || path === '#/register') && auth.isAuthenticated()) {
-    location.hash = '#/dashboard';
+  if ((path === "#/login" || path === "#/register") && auth.isAuthenticated()) {
+    location.hash = "#/dashboard";
     return;
   }
 
   // Ejemplo: ruta dinámica para editar curso
-  if (path.startsWith('#/dashboard/courses/edit/')) {
+  if (path.startsWith("#/dashboard/courses/edit/")) {
     showEditCourse(); // Implementa esta función en views.js
     return;
+  }
+
+  // Mostrar el menú solo si el usuario esta autenticado
+  if (auth.isAuthenticated()) {
+    menu.style.display = "flex"; // Muestra el menú si hay usuario autenticado
+    document.getElementById("logout-button").onclick = auth.logout;
+  } else {
+    menu.style.display = "none"; // Oculta el menú si no hay usuario autenticado
+  }
+
+  if ( user && user.role === "admin") {
+    // menu.style.display = "block"; // Muestra el menú si es admin
   }
 
   // Cargar la vista correspondiente
@@ -55,7 +73,3 @@ export function router() {
     renderNotFound(); // Implementa esta función en views.js
   }
 }
-
-// Recuerda agregar los listeners en app.js para inicializar el router
-// window.addEventListener('hashchange', router);
-// window.addEventListener('DOMContentLoaded', router);

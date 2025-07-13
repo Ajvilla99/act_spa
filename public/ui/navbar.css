@@ -1,0 +1,57 @@
+header {
+    height: 60px;
+    display: none;
+    width: 100%;
+    background-color: var(--primary-100);
+    justify-content: center;
+    align-items: center;
+    transition: all;
+}
+
+@media (max-width: 1200px) {
+    header {
+        padding: 0 10px;
+    }
+    
+}
+
+.box_menu_container {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+
+}
+
+.box_menu_logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.box_menu_logo img {
+    height: 40px;
+    width: auto;
+}
+
+
+.user-info {
+    padding: 1%;
+    height: 100%;
+}
+.btn_logout {
+    display: flex;
+    background-color: transparent;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+    color: rgb(245, 136, 136);
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+.btn_logout:hover {
+    background-color: rgb(63, 24, 24);
+}
