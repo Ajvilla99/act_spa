@@ -2,6 +2,7 @@
  @import url('./ui/formLogin.css');
  @import url('./ui/navbar.css');
  @import url('./ui/dashboard.css');
+ @import url('./ui/formRegister.css');
 
 :root {
   --primary-100: #1e2022;
@@ -17,6 +18,8 @@
   --bg-300: #bfc7d1;
   --c-riwi: #6b5cff;
   --c-riwi-hover: #5e4cfc;
+  --action-error: #ff5959d3;
+   --action-error-hover: #ff595988;
 }
 
 * {
@@ -41,13 +44,11 @@ input {
 
 button {
   border: none;
-  background-color: var(--accent-100);
   cursor: pointer;
 }
 
 a {
   text-decoration: none;
-  color: var(--text-100);
   cursor: pointer;
 }
 

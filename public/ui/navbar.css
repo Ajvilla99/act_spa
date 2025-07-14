@@ -1,57 +1,155 @@
 header {
-    height: 60px;
-    display: none;
-    width: 100%;
-    background-color: var(--primary-100);
-    justify-content: center;
-    align-items: center;
-    transition: all;
+  height: 60px;
+  display: none;
+  width: 100%;
+  background-color: var(--primary-100);
+  color: var(--text-300);
+  justify-content: center;
+  align-items: center;
+  transition: all;
 }
 
 @media (max-width: 1200px) {
-    header {
-        padding: 0 10px;
-    }
-    
+  header {
+    padding: 0 10px;
+  }
 }
 
 .box_menu_container {
-    flex: 1;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
 }
 
 .box_menu_logo {
-    display: flex;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .box_menu_logo img {
-    height: 40px;
-    width: auto;
+  height: 40px;
+  width: auto;
 }
 
-
-.user-info {
-    padding: 1%;
-    height: 100%;
+.box_menu_routes {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
 }
-.btn_logout {
+.box_menu_routes nav {
+  display: flex;
+  gap: 10px;
+}
+.box_menu_routes nav a {
+  color: var(--text-300);
+  padding: 10px;
+  border-radius: 4px;
+}
+.box_menu_routes nav a:hover {
+  background-color: var(--primary-200);
+}
+
+/* Menu Profile */
+.box_menu_profile {
+  position: relative;
+}
+
+/* .box_menu_profile .show_menu {
+
+} */
+
+.box_menu_profile .show_menu .profile_img {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-200);
+  color: var(--text-300);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user_menu_actions {
+  position: absolute;
+  width: 220px;
+  background-color: var(--primary-100);
+  top: 140%;
+  right: 0;
+  padding: 10px;
+  z-index: 10;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#show_data_user_name {
+  font-size: 16px;
+  text-transform: capitalize;
+}
+#show_data_user_email {
+  font-size: 12px;
+}
+
+.user_menu_actions button {
+  background-color: transparent;
+  color: var(--text-300);
+}
+
+.user_menu_actions .data_user {
     display: flex;
-    background-color: transparent;
     align-items: center;
-    height: 100%;
-    padding: 0 20px;
-    color: rgb(245, 136, 136);
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
+    padding: 0 10px 10px;
+    justify-content: space-between;
 }
-.btn_logout:hover {
-    background-color: rgb(63, 24, 24);
+.user_menu_actions .data_user .data_user_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-300);
+    color: var(--text-100);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.box_actions_item button {
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+  transition: all 0.2s ease-in;
+  font-weight: 500;
+  display: flex;
+  text-transform: capitalize;
+}
+.box_actions_item button:hover {
+  background-color: var(--primary-200);
+  color: white;
+  font-weight: 600;
+}
+
+.box_actions_item a {
+    color: var(--text-300);
+}
+.box_actions_item a:hover {
+    color: var(--c-riwi);
+}
+
+
+#logout-button:hover {
+  background-color: rgba(255, 111, 111, 0.514);
+  color: white;
+  font-weight: 600;
+}
+
+.hidden {
+    display: none!important;
 }

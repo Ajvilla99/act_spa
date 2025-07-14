@@ -28,7 +28,7 @@ export const auth = {
       throw new Error('El email ya está registrado');
       // Mostramos error en pantalla [HACER DISEÑO]
     }
-    const newUser = { name, email, password: pass };
+    const newUser = { name, email, password: pass, role: 'student' };
     await api.post('/users', newUser); // Registra el nuevo usuario
   },
   // Implementa la función de logout

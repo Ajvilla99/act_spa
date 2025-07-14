@@ -33,8 +33,6 @@ export function router() {
   const path = location.hash || "#/login";
   const user = auth.getUser();
 
-  console.log(path.startsWith());
-
   // Ejemplo: proteger rutas de dashboard
   if (path.startsWith("#/dashboard") && !auth.isAuthenticated()) {
     location.hash = "#/login";
@@ -53,16 +51,8 @@ export function router() {
     return;
   }
 
-  // Mostrar el menú solo si el usuario esta autenticado
   if (auth.isAuthenticated()) {
-    menu.style.display = "flex"; // Muestra el menú si hay usuario autenticado
-    document.getElementById("logout-button").onclick = auth.logout;
-  } else {
-    menu.style.display = "none"; // Oculta el menú si no hay usuario autenticado
-  }
-
-  if ( user && user.role === "admin") {
-    // menu.style.display = "block"; // Muestra el menú si es admin
+    document.querySelector("#menu").style.display = "flex";
   }
 
   // Cargar la vista correspondiente

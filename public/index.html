@@ -10,6 +10,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
+    <!-- Boxicons CDN -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body class="body_login">
     <header id="menu">
@@ -17,28 +22,47 @@
         <div class="box_menu_logo">
           <img src="./img/no_logo.png" alt="Logo" />
         </div>
-        <nav>
-          <a href="#/">home</a>
-          <a href="#/register">Registro</a>
-          <a href="#/dashboard/course">Dashboard</a>
-        </nav>
-        <div class="user-info">
-          <span id="user-name"></span>
-          <button class="btn_logout" id="logout-button">Logout</button>
+
+        <div class="box_menu_routes">
+          <nav>
+            <a href="#/dashboard">Inicio</a>
+            <a href="#/dashboard/courses">Cursos</a>
+          </nav>
+          <div class="box_menu_profile">
+            <button class="show_menu" id="show-menu">
+              <div class="profile_img">AB</div>
+            </button>
+            <div class="user_menu_actions hidden" id="user-menu-actions">
+              <div class="box_actions_item data_user">
+                <div class="data_user_img">AD</div>
+                <div class="">
+                  <a href="#/profile" id="show_data_user_name"></a>
+                  <p id="show_data_user_email"></p>
+                </div>
+              </div>
+              <hr />
+              <div class="box_actions_item">
+                <button>action1</button>
+              </div>
+              <div class="box_actions_item">
+                <button>action1</button>
+              </div>
+              <div class="box_actions_item">
+                <button>action1</button>
+              </div>
+              <hr />
+              <div class="box_actions_item">
+                <button id="logout-button">Cerrar sesion</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
-    <!--
-    INSTRUCCIONES:
-    - Esta es una plantilla base para una SPA de cursos.
-    - El código JavaScript está en la carpeta js/ y está dividido en módulos.
-    - Debes completar la lógica en los archivos js/api.js, js/auth.js, js/views.js y js/router.js.
-    - Usa los comentarios en cada archivo como guía.
-    - El punto de entrada es js/app.js.
-    - El contenedor principal de la app es el div con id="app".
-  -->
-    <!-- <div class=""></div> -->
 
+    <!-- enrolled -->
+    <!-- { "id": 1, "title": "JavaScript Básico", "capacity": 20, "enrolled":
+    ["juan@mail.com", "ana@mail.com"] } -->
     <div id="app"></div>
     <script type="module" src="js/app.js"></script>
   </body>

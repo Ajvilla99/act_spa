@@ -6,15 +6,17 @@
 
 import { api } from "./api.js"; // Implementa y exporta funciones de API en api.js
 import { auth } from "./auth.js"; // Implementa y exporta funciones de autenticación en auth.js
-import { router } from "./router.js"; // Importa el enrutador para redirigir después de acciones
+// import { router } from "./router.js"; // Importa el enrutador para redirigir después de acciones
 
 // Muestra un mensaje de página no encontrada
 export function renderNotFound() {
+  
   document.getElementById("app").innerHTML = "<h2>Página no encontrada</h2>";
 }
 
 // Implementa la vista de login
 export async function showLogin() {
+  
   document.getElementById("app").innerHTML = `
     <div class="login-container">
       <div class="login-container_box">
@@ -36,7 +38,6 @@ export async function showLogin() {
     try {
       await auth.login(e.target.e.value, e.target.p.value);
       location.hash = "#/dashboard";
-      router();
     } catch (err) {
       alert(err.message);
     }
@@ -45,22 +46,30 @@ export async function showLogin() {
 
 // Implementa la vista de registro
 export async function showRegister() {
+  
   document.getElementById("app").innerHTML = `
-    <div class="login-container">
-      <form id="f" class="login-form card">
-        <h2 style="text-align:center; margin-bottom:1em;">Registro</h2>
-        <input placeholder="nombre" id="n">
-        <input placeholder="email" id="e">
-        <input placeholder="pass" id="p">
-        <button>Registrar</button>
+    <div class="register_container">
+      <form id="f" class="register-form card">
+        <h2 style="text-align:center; margin-bottom:1em;">Crear cuenta</h2>
+        <input placeholder="Nombre" id="n" class="input_register">
+        <input placeholder="Correo electronico" id="e" class="input_register">
+        <input placeholder="Contraseña" id="p" class="input_register">
+        <button class="btn_primary">Registrar</button>
       </form>
+      
+      <span>
+        ¿Ya tienes una cuenta?
+        <a href="#/login">
+          Iniciar sesion
+        </a>
+      </span>
     </div>`;
   document.getElementById("f").onsubmit = async (e) => {
     e.preventDefault();
     try {
       await auth.register(e.target.n.value, e.target.e.value, e.target.p.value);
+      await auth.login(e.target.e.value, e.target.p.value);
       location.hash = "#/dashboard";
-      router();
     } catch (err) {
       alert(err.message);
     }
@@ -69,6 +78,7 @@ export async function showRegister() {
 
 // Implementa la vista principal del dashboard
 export async function showDashboard() {
+  
   const u = auth.getUser();
   const courses = await api.get("/courses");
   console.log(courses);
@@ -190,7 +200,7 @@ export async function showCourses() {
       )
       .join("")}</ul>`;
 
-  if (u.role === "student") {
+  if (user.role === "student") {
     document.querySelectorAll(".enroll-btn").forEach((btn) => {
       btn.onclick = async () => {
         const courseId = btn.dataset.id;
@@ -202,7 +212,7 @@ export async function showCourses() {
         if (!course.enrolled) course.enrolled = [];
 
         // Evitar doble inscripción
-        if (course.enrolled.includes(u.email)) {
+        if (course.enrolled.includes(user.email)) {
           alert("Ya estás inscrito en este curso.");
           return;
         }
@@ -215,7 +225,7 @@ export async function showCourses() {
           return;
         }
 
-        course.enrolled.push(u.email);
+        course.enrolled.push(user.email);
         course.capacity = capacity;
 
         await api.put("/courses/" + courseId, course);
@@ -228,6 +238,7 @@ export async function showCourses() {
 
 // Implementa la vista para crear un curso (solo admin)
 export function showCreateCourse() {
+  
   document.getElementById("app").innerHTML = `
     <h2>Crear Curso</h2>
     <form id="f">
@@ -245,7 +256,7 @@ export function showCreateCourse() {
     };
     await api.post("/courses", data);
     location.hash = "#/dashboard/courses";
-    router();
+    // router();
   };
 }
 
@@ -257,6 +268,7 @@ export async function showEditCourse() {
     return;
   }
 
+  
   const courseId = location.hash.split("/").pop();
   const course = await api.get("/courses/" + courseId);
 
@@ -283,8 +295,6 @@ export async function showEditCourse() {
     };
     await api.put("/courses/" + courseId, updated);
     location.hash = "#/dashboard/courses";
-    router();
+    // router();
   };
 }
-
-// Puedes agregar más funciones de vista según lo requiera tu aplicación
